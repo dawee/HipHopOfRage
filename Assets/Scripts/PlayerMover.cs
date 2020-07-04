@@ -10,6 +10,9 @@ public class PlayerMover : MonoBehaviour
 
     [SerializeField]
     private float velocity;
+    public float Velocity => velocity;
+
+    public Vector2 Position => transform.position;
 
     void Update()
     {
