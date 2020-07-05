@@ -17,8 +17,9 @@ public class PlayerMover : MonoBehaviour
 
     public Vector2 Position => transform.position;
 
-    void Start() {
-        // animator.SetTrigger("Walk");
+    void Start()
+    {
+        animator.SetTrigger("Walk");
     }
 
     void Update()
