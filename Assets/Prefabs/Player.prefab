@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219ca543eb9ec14a8b245efd4f40559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 1838505552}
 --- !u!1 &2795773917325670104
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +135,9 @@ GameObject:
   - component: {fileID: 1087485559404872663}
   - component: {fileID: 638385176}
   - component: {fileID: 6083298743090152734}
+  - component: {fileID: 3830937286686338149}
   m_Layer: 0
-  m_Name: Skeleton
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 1087485559404872663}
+  animator: {fileID: 3830937286686338149}
   velocity: 7.97
 --- !u!50 &1087485559404872663
 Rigidbody2D:
@@ -282,4 +283,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163ed943633848e4aa63c000201b755c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hit: {fileID: 1838505552}
+  hit: {fileID: 1838505554}
+--- !u!95 &3830937286686338149
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795773917325670104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d2673da30e82714d8f67eaad93f5473, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

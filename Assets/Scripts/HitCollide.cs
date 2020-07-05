@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class HitCollide : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject gameObject;
     private bool isHitting = false;
 
 
@@ -22,7 +20,6 @@ public class HitCollide : MonoBehaviour
             gameObject.SetActive(true);
             StartCoroutine(WaitForHit());
         }
-        
     }
 
     void OnTriggerEnter2D(Collider2D other) {

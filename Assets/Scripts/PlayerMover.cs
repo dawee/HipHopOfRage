@@ -9,10 +9,17 @@ public class PlayerMover : MonoBehaviour
     private Rigidbody2D body;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private float velocity;
     public float Velocity => velocity;
 
     public Vector2 Position => transform.position;
+
+    void Start() {
+        // animator.SetTrigger("Walk");
+    }
 
     void Update()
     {

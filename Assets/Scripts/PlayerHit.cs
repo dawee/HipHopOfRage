@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
     [SerializeField]
-    private GameObject hit;
+    private HitCollide hit;
     
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class PlayerHit : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Hit")){
-            hit.GetComponent<HitCollide>().Activate();
+            hit.Activate();
         }
     }
 }
