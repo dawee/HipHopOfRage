@@ -5,8 +5,11 @@ TextureImporter:
   - first:
       213: 7039025756156400724
     second: skeleton
+  - first:
+      213: -7146201877707001465
+    second: wizard
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -60,6 +63,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -97,7 +101,7 @@ TextureImporter:
         width: 125
         height: 153
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -105,6 +109,27 @@ TextureImporter:
       bones: []
       spriteID: 454178081a4afa160800000000000000
       internalID: 7039025756156400724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wizard
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 173
+        width: 136
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7817b02214793dc90800000000000000
+      internalID: -7146201877707001465
       vertices: []
       indices: 
       edges: []
