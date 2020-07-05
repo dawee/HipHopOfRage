@@ -25,6 +25,11 @@ public class HitCollide : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        other.gameObject.SendMessage("Hit", 1.0F);
+    }
+    
+
     IEnumerator WaitForHit()
     {
         yield return new WaitForSeconds(0.4F);
