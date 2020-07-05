@@ -19,11 +19,17 @@ public class PlayerMover : MonoBehaviour
 
     void Start()
     {
-        animator.SetTrigger("Walk");
+        
     }
 
     void Update()
     {
-        body.velocity = new Vector2(velocity * Math.Sign(Input.GetAxis("Horizontal")), velocity * Math.Sign(Input.GetAxis("Vertical")));
+        
+        float horizontal = Math.Sign(Input.GetAxis("Horizontal"));
+        float vertical = Math.Sign(Input.GetAxis("Vertical"));
+        print(Math.Abs(horizontal) + Math.Abs(vertical) > 0);
+        animator.SetBool("Walk", Math.Abs(horizontal) + Math.Abs(vertical) > 0);
+
+        body.velocity = new Vector2(velocity * horizontal, velocity * vertical);
     }
 }
