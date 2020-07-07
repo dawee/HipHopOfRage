@@ -20,4 +20,9 @@ public class PlayerHit : MonoBehaviour
             hit.Activate();
         }
     }
+
+    public void Hit(float damage)
+    {
+        print("Ouille");
+    }
 }
