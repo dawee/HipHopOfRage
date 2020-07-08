@@ -19,7 +19,7 @@ public class PlayerMover : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -27,10 +27,13 @@ public class PlayerMover : MonoBehaviour
         float horizontal = Math.Sign(Input.GetAxis("Horizontal"));
         float vertical = Math.Sign(Input.GetAxis("Vertical"));
 
-        if(horizontal < 0) {
-            gameObject.transform.localScale = new Vector2(-1, 1);
-        } else if(horizontal > 0) {
-            gameObject.transform.localScale = new Vector2(1, 1);
+        if (horizontal < 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (horizontal > 0)
+        {
+            transform.localScale = new Vector2(1, 1);
         }
 
         animator.SetBool("Walk", Math.Abs(horizontal) + Math.Abs(vertical) > 0);

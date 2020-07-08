@@ -100,7 +100,7 @@ MonoBehaviour:
   player: {fileID: 0}
   mode: 0
   body: {fileID: 3697273181707677663}
-  minFollowDistance: 0.1
+  minFollowDistance: 1
 --- !u!50 &3697273181707677663
 Rigidbody2D:
   serializedVersion: 4
