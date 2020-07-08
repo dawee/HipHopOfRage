@@ -6,6 +6,9 @@ public class PlayerHit : MonoBehaviour
 {
     [SerializeField]
     private HitCollide hit;
+
+    [SerializeField]
+    private int Health;
     
     // Start is called before the first frame update
     void Start()
@@ -21,8 +24,12 @@ public class PlayerHit : MonoBehaviour
         }
     }
 
+    public int GetHealth() {
+        return Health;
+    }
+
     public void Hit(float damage)
     {
-        print("Ouille");
+        Health -= 1;
     }
 }
