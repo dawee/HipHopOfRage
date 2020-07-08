@@ -12,6 +12,7 @@ public class Checkpoint : MonoBehaviour
     private Level level = default;
 
     private bool completed = false;
+    public bool Completed => completed;
 
     public void OnWaveCompleted(Wave wave)
     {

@@ -31,17 +31,18 @@ public class CameraController : MonoBehaviour
 
     private void Follow()
     {
-        if (Mathf.Abs(transform.position.x - player.Position.x) <= minFollowDistance)
+        if (body.velocity.x > 0 && Mathf.Abs(transform.position.x - player.transform.position.x) <= minFollowDistance)
         {
-            transform.position = new Vector3(player.Position.x, transform.position.y, transform.position.z);
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
             body.velocity = Vector2.zero;
+        }
+        else if ((player.Position.x - transform.position.x) > 0)
+        {
+            body.velocity = new Vector2(player.Velocity, 0);
         }
         else
         {
-            body.velocity = new Vector2(
-                Math.Sign(player.Position.x - transform.position.x) * player.Velocity,
-                0
-            );
+            body.velocity = Vector2.zero;
         }
     }
 
@@ -57,10 +58,14 @@ public class CameraController : MonoBehaviour
     {
         if (other.tag == "Checkpoint" && level)
         {
-            mode = Mode.Fixed;
-
             Checkpoint checkpoint = other.GetComponent<Checkpoint>();
-            level.OnHitCheckpoint(checkpoint);
+
+            if (!checkpoint.Completed)
+            {
+                mode = Mode.Fixed;
+                level.OnHitCheckpoint(checkpoint);
+                body.velocity = Vector2.zero;
+            }
         }
     }
 }
