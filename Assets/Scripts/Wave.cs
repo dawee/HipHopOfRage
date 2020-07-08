@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-
-    [SerializeField]
-    private bool started = false;
-
-    [SerializeField]
-    private bool completed = false;
-
     [SerializeField]
     private List<Enemy> enemies = default;
+
+    [SerializeField]
+    private Checkpoint checkpoint = default;
+
+    private bool started = false;
+    private bool completed = false;
 
     public void OnEnemyDead(Enemy enemy)
     {
@@ -43,6 +42,11 @@ public class Wave : MonoBehaviour
     private void CompleteWave()
     {
         completed = true;
+
+        if (checkpoint)
+        {
+            checkpoint.OnWaveCompleted(this);
+        }
     }
 
     private void StartWave()
