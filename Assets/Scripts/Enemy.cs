@@ -6,10 +6,10 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private Animator animator;
+    private Animator animator = default;
 
     [SerializeField]
-    private UnityEvent died;
+    private Wave wave = default;
 
     public void Hit(float damage)
     {
@@ -19,6 +19,10 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         animator.SetTrigger("death");
-        died.Invoke();
+
+        if (wave)
+        {
+            wave.OnEnemyDead(this);
+        }
     }
 }
