@@ -224,6 +224,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7709438513335169640}
   wave: {fileID: 0}
+  player: {fileID: 0}
+  minFollowDistance: 10
+  body: {fileID: 640425627}
+  velocity: 6
 --- !u!50 &640425627
 Rigidbody2D:
   serializedVersion: 4
