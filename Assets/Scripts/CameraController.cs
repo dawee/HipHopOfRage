@@ -52,8 +52,6 @@ public class CameraController : MonoBehaviour
         {
             Follow();
         }
-
-        transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
