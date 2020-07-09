@@ -51,6 +51,11 @@ public class CameraController : MonoBehaviour
         if (mode == Mode.Following)
         {
             Follow();
+
+            if (Math.Truncate(transform.position.x) != transform.position.x)
+            {
+                transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, transform.position.z);
+            }
         }
     }
 
