@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        health = 0;
         animator.SetTrigger("death");
 
         if (wave)
