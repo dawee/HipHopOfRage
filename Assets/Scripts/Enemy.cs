@@ -6,6 +6,13 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+
+    public enum State
+    {
+        FollowingPlayer,
+        AvoidingOtherEnemy
+    }
+
     [SerializeField]
     private Animator animator = default;
 
@@ -27,28 +34,67 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float health = default;
 
+    private State state = State.FollowingPlayer;
+    private Enemy otherEnemyToAvoid = default;
     private float lastAttack = default;
     private static Vector3 rightScale = new Vector3(1, 1, 1);
     private static Vector3 leftScale = new Vector3(-1, 1, 1);
 
-    private void Update()
+    private void FollowPlayer()
     {
         if (Vector3.Distance(transform.position, player.transform.position) > minFollowDistance)
         {
             transform.localScale = player.transform.position.x > transform.position.x ? rightScale : leftScale;
             body.velocity = (player.transform.position - transform.position).normalized * velocity;
-            animator.SetBool("walk", true);
         }
         else
         {
             body.velocity = Vector2.zero;
-            animator.SetBool("walk", false);
         }
+    }
+
+    private void AvoidOtherEnemy()
+    {
+        body.velocity = (transform.position - otherEnemyToAvoid.transform.position).normalized * velocity;
+        transform.localScale = body.velocity.x > 0 ? rightScale : leftScale;
+    }
+
+    private void Update()
+    {
+        switch (state)
+        {
+            case State.FollowingPlayer:
+                FollowPlayer();
+                break;
+            case State.AvoidingOtherEnemy:
+                AvoidOtherEnemy();
+                break;
+        }
+
+        animator.SetBool("walk", body.velocity != Vector2.zero);
 
         if (health > 0 && Time.time - lastAttack > 2f)
         {
             animator.SetTrigger("attack");
             lastAttack = Time.time;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            state = State.FollowingPlayer;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            otherEnemyToAvoid = other.GetComponent<Enemy>();
+            state = State.AvoidingOtherEnemy;
         }
     }
 
