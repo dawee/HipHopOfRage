@@ -13,9 +13,6 @@ public class HitCollide : MonoBehaviour
     }
 
     [SerializeField]
-    private string tagToHit = default;
-
-    [SerializeField]
     private float damage = default;
 
     [SerializeField]

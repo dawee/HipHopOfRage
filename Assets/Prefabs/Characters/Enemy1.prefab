@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1710364188}
   - component: {fileID: 1710364187}
   m_Layer: 0
-  m_Name: Hit
+  m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710364186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.3, y: 18.2, z: 3.759992}
+  m_LocalPosition: {x: 16.18, y: 18.2, z: 3.759992}
   m_LocalScale: {x: 14.57721, y: 5.675013, z: 1}
   m_Children: []
   m_Father: {fileID: 7242797270290147197}
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219ca543eb9ec14a8b245efd4f40559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  target: 1
 --- !u!1 &7242797270290147199
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +229,7 @@ MonoBehaviour:
   minFollowDistance: 10
   body: {fileID: 640425627}
   velocity: 12
+  health: 10
 --- !u!50 &640425627
 Rigidbody2D:
   serializedVersion: 4

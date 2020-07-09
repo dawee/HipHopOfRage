@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float velocity = default;
 
+    [SerializeField]
+    private float health = default;
+
+    private float lastAttack = default;
     private static Vector3 rightScale = new Vector3(1, 1, 1);
     private static Vector3 leftScale = new Vector3(-1, 1, 1);
 
@@ -39,6 +43,12 @@ public class Enemy : MonoBehaviour
         {
             body.velocity = Vector2.zero;
             animator.SetBool("walk", false);
+        }
+
+        if (health > 0 && Time.time - lastAttack > 2f)
+        {
+            animator.SetTrigger("attack");
+            lastAttack = Time.time;
         }
     }
 
