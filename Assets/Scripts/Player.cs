@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Hit"))
+        if (Input.GetButtonDown("Hit") && !isStun)
         {
             animator.SetTrigger("Attack1");
         }
