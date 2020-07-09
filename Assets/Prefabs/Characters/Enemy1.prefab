@@ -135,11 +135,10 @@ GameObject:
   - component: {fileID: 640425627}
   - component: {fileID: 640425626}
   - component: {fileID: 7709438513335169640}
-  - component: {fileID: 853947368}
   - component: {fileID: 8856021165955804344}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,7 +226,7 @@ MonoBehaviour:
   player: {fileID: 0}
   minFollowDistance: 10
   body: {fileID: 640425627}
-  velocity: 6
+  velocity: 12
 --- !u!50 &640425627
 Rigidbody2D:
   serializedVersion: 4
@@ -294,19 +293,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &853947368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7242797270290147199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6f75fde4ecdc94fbc359cc1e68fd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 1710364187}
 --- !u!114 &8856021165955804344
 MonoBehaviour:
   m_ObjectHideFlags: 0

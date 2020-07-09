@@ -5,39 +5,36 @@ using UnityEngine;
 
 public class HitCollide : MonoBehaviour
 {
-    private bool isHitting = false;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public enum Target
     {
-        
+        Enemy,
+        Player
     }
 
-    public void Activate() {
-        if(!isHitting) {
-            isHitting = true;
-            gameObject.SetActive(true);
-            StartCoroutine(WaitForHit());
+    [SerializeField]
+    private string tagToHit = default;
+
+    [SerializeField]
+    private float damage = default;
+
+    [SerializeField]
+    private Target target = default;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (target == Target.Enemy && other.tag == "Enemy")
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            enemy.ReceiveHit(1.0f);
         }
-    }
+        else if (target == Target.Player && other.tag == "Player")
+        {
+            Player player = other.GetComponent<Player>();
 
-    void OnTriggerEnter2D(Collider2D other) {
-        other.gameObject.SendMessage("Hit", 1.0F);
-    }
-    
+            player.ReceiveHit(damage);
 
-    IEnumerator WaitForHit()
-    {
-        yield return new WaitForSeconds(0.4F);
-
-        isHitting = false;
-        gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }

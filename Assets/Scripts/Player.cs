@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMover : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody2D body;
@@ -17,13 +17,18 @@ public class PlayerMover : MonoBehaviour
 
     public Vector2 Position => transform.position;
 
-    void Start()
-    {
-
-    }
+    [SerializeField]
+    private int health = default;
+    public int Health => health;
 
     void Update()
     {
+
+        if (Input.GetButtonDown("Hit"))
+        {
+            animator.SetTrigger("Attack1");
+        }
+
         float horizontal = Math.Sign(Input.GetAxis("Horizontal"));
         float vertical = Math.Sign(Input.GetAxis("Vertical"));
 
@@ -39,5 +44,11 @@ public class PlayerMover : MonoBehaviour
         animator.SetBool("Walk", Math.Abs(horizontal) + Math.Abs(vertical) > 0);
 
         body.velocity = new Vector2(velocity * horizontal, velocity * vertical);
+    }
+
+
+    public void ReceiveHit(float damage)
+    {
+        health -= 1;
     }
 }

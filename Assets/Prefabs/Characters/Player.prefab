@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1838505555}
   - component: {fileID: 1838505554}
   m_Layer: 0
-  m_Name: Hit
+  m_Name: Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838505552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0219ca543eb9ec14a8b245efd4f40559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagToHit: 
+  damage: 0
+  target: 0
 --- !u!1 &2795773917325670104
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,12 +134,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6558571403554029168}
   - component: {fileID: 1476337553281362959}
-  - component: {fileID: 3795194913179812083}
   - component: {fileID: 1087485559404872663}
   - component: {fileID: 638385176}
-  - component: {fileID: 6083298743090152734}
   - component: {fileID: 3830937286686338149}
   - component: {fileID: 8825707795513011080}
+  - component: {fileID: 751460195051636164}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -210,21 +212,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3795194913179812083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2795773917325670104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e218c59ba3df5634ba187d4e164dc897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  body: {fileID: 1087485559404872663}
-  animator: {fileID: 3830937286686338149}
-  velocity: 35
 --- !u!50 &1087485559404872663
 Rigidbody2D:
   serializedVersion: 4
@@ -272,19 +259,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.368801, y: 4.793586}
   m_EdgeRadius: 0
---- !u!114 &6083298743090152734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2795773917325670104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163ed943633848e4aa63c000201b755c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hit: {fileID: 1838505554}
 --- !u!95 &3830937286686338149
 Animator:
   serializedVersion: 3
@@ -316,3 +290,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210b393c4de627d4da1bf81d6043ee84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &751460195051636164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2795773917325670104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e218c59ba3df5634ba187d4e164dc897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 1087485559404872663}
+  animator: {fileID: 3830937286686338149}
+  velocity: 15
+  health: 9

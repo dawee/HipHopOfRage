@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 640425625, guid: 97d208b5474b93e4ea92e8c915e7d793, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 601102237}
+      objectReference: {fileID: 1125366659}
     - target: {fileID: 7242797270290147197, guid: 97d208b5474b93e4ea92e8c915e7d793,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,7 +281,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 601102237}
+      objectReference: {fileID: 1125366659}
     - target: {fileID: 8066318923256175080, guid: 51888094bb18f004a949a17be1863018,
         type: 3}
       propertyPath: level
@@ -901,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 640425625, guid: 97d208b5474b93e4ea92e8c915e7d793, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 601102237}
+      objectReference: {fileID: 1125366659}
     - target: {fileID: 7242797270290147197, guid: 97d208b5474b93e4ea92e8c915e7d793,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1081,18 +1081,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 92377419}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &601102237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3795194913179812083, guid: b4ee9e0cc3dbab049bda60ded776d57b,
-    type: 3}
-  m_PrefabInstance: {fileID: 897898241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1125366655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e218c59ba3df5634ba187d4e164dc897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &609514462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1701,6 +1689,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 14.57721
       objectReference: {fileID: 0}
+    - target: {fileID: 1838505553, guid: b4ee9e0cc3dbab049bda60ded776d57b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.675013
+      objectReference: {fileID: 0}
     - target: {fileID: 1838505556, guid: b4ee9e0cc3dbab049bda60ded776d57b, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -1987,14 +1979,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1125366659 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6083298743090152734, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+  m_CorrespondingSourceObject: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
     type: 3}
   m_PrefabInstance: {fileID: 897898241}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125366655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 163ed943633848e4aa63c000201b755c, type: 3}
+  m_Script: {fileID: 11500000, guid: e218c59ba3df5634ba187d4e164dc897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1125366662
@@ -2014,7 +2006,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 65, y: 77}
+    oldSize: {x: 55, y: 73}
     newSize: {x: 0.65, y: 0.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2452,7 +2444,7 @@ PrefabInstance:
     - target: {fileID: 640425625, guid: 97d208b5474b93e4ea92e8c915e7d793, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 601102237}
+      objectReference: {fileID: 1125366659}
     - target: {fileID: 7242797270290147197, guid: 97d208b5474b93e4ea92e8c915e7d793,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2779,7 +2771,7 @@ PrefabInstance:
     - target: {fileID: 640425625, guid: 97d208b5474b93e4ea92e8c915e7d793, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 601102237}
+      objectReference: {fileID: 1125366659}
     - target: {fileID: 1710364186, guid: 97d208b5474b93e4ea92e8c915e7d793, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3077,7 +3069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9a39b5c76cb0f49a17cbc760c16288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBar:
+  healthBar:
   - {fileID: 1849603451}
   - {fileID: 595834800}
   - {fileID: 22426155}
@@ -3087,7 +3079,7 @@ MonoBehaviour:
   - {fileID: 2115095045}
   - {fileID: 1627427785}
   - {fileID: 295653501}
-  Player: {fileID: 1125366659}
+  player: {fileID: 1125366659}
 --- !u!1 &1842164864
 GameObject:
   m_ObjectHideFlags: 0

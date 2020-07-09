@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     }
 
     [SerializeField]
-    private PlayerMover player = default;
+    private Player player = default;
 
     [SerializeField]
     private Mode mode = Mode.Following;

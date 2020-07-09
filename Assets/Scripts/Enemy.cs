@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     private Wave wave = default;
 
     [SerializeField]
-    private PlayerMover player = default;
+    private Player player = default;
 
     [SerializeField]
     private float minFollowDistance = default;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Hit(float damage)
+    public void ReceiveHit(float damage)
     {
         Die();
     }
