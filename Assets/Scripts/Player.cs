@@ -21,14 +21,10 @@ public class Player : MonoBehaviour
     private int health = default;
     public int Health => health;
 
-    void Update()
-    {
+    [SerializeField]
+    private bool isStun = false;
 
-        if (Input.GetButtonDown("Hit"))
-        {
-            animator.SetTrigger("Attack1");
-        }
-
+    private void Walk() {
         float horizontal = Math.Sign(Input.GetAxis("Horizontal"));
         float vertical = Math.Sign(Input.GetAxis("Vertical"));
 
@@ -44,6 +40,21 @@ public class Player : MonoBehaviour
         animator.SetBool("Walk", Math.Abs(horizontal) + Math.Abs(vertical) > 0);
 
         body.velocity = new Vector2(velocity * horizontal, velocity * vertical);
+    }
+
+    void Update()
+    {
+
+        if (Input.GetButtonDown("Hit"))
+        {
+            animator.SetTrigger("Attack1");
+        }
+
+        if(isStun) {
+            body.velocity = new Vector2(0,0);
+        } else {
+            Walk();
+        }
     }
 
 
