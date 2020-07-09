@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (mode == Mode.Following)
         {
