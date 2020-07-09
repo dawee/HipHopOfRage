@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool isStun = false;
 
-    private void Walk() {
+    private void Walk()
+    {
         float horizontal = Math.Sign(Input.GetAxis("Horizontal"));
         float vertical = Math.Sign(Input.GetAxis("Vertical"));
 
@@ -50,9 +51,12 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Attack1");
         }
 
-        if(isStun) {
-            body.velocity = new Vector2(0,0);
-        } else {
+        if (isStun)
+        {
+            body.velocity = Vector2.zero;
+        }
+        else
+        {
             Walk();
         }
     }
