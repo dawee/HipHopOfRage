@@ -46,17 +46,14 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (mode == Mode.Following)
         {
             Follow();
-
-            if (Math.Truncate(transform.position.x) != transform.position.x)
-            {
-                transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, transform.position.z);
-            }
         }
+
+        transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
