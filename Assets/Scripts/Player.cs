@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
         }
 
         animator.SetBool("Walk", Math.Abs(horizontal) + Math.Abs(vertical) > 0);
-
         body.velocity = new Vector2(velocity * horizontal, velocity * vertical);
     }
 

@@ -72,9 +72,13 @@ public class Enemy : MonoBehaviour
         if(isStun)
         {
             Stun();
-            return;
+        } else {
+            UpdateActions();
         }
+    }
 
+    private void UpdateActions()
+    {
         switch (state)
         {
             case State.FollowingPlayer:
@@ -92,7 +96,6 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("attack");
             lastAttack = Time.time;
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -114,12 +117,18 @@ public class Enemy : MonoBehaviour
 
     public void ReceiveHit(float damage)
     {
-        Die();
+        health -= 1;
+
+        if(health == 0) 
+        {
+            Die();
+        } else {
+            animator.SetTrigger("hit");  
+        }
     }
 
     private void Die()
     {
-        health = 0;
         animator.SetTrigger("death");
 
         if (wave)
