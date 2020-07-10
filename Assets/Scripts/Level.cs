@@ -8,7 +8,11 @@ public class Level : MonoBehaviour
     [SerializeField]
     private CameraController cameraController;
 
+    [SerializeField]
+    private Animator handgunAnimator;
+
     private Checkpoint currentCheckpoint;
+
 
     public void OnHitCheckpoint(Checkpoint checkpoint)
     {
@@ -21,6 +25,7 @@ public class Level : MonoBehaviour
         {
             currentCheckpoint = null;
             cameraController.SetMode(CameraController.Mode.Following);
+            handgunAnimator.SetTrigger("show");
         }
     }
 
