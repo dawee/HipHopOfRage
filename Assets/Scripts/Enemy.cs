@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float health = default;
 
+    [SerializeField]
+    private bool isStun = false;
+
     private State state = State.FollowingPlayer;
     private Enemy otherEnemyToAvoid = default;
     private float lastAttack = default;
@@ -59,8 +62,19 @@ public class Enemy : MonoBehaviour
         transform.localScale = body.velocity.x > 0 ? rightScale : leftScale;
     }
 
+    private void Stun()
+    {
+        body.velocity = Vector2.zero;
+    }
+
     private void Update()
     {
+        if(isStun)
+        {
+            Stun();
+            return;
+        }
+
         switch (state)
         {
             case State.FollowingPlayer:
