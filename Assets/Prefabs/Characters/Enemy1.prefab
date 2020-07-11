@@ -228,7 +228,7 @@ MonoBehaviour:
   player: {fileID: 0}
   minFollowDistance: 10
   body: {fileID: 640425627}
-  velocity: 12
+  velocity: 25
   health: 3
   isStun: 0
 --- !u!50 &640425627

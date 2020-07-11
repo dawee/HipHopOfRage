@@ -305,7 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1087485559404872663}
   animator: {fileID: 3830937286686338149}
-  velocity: 30
+  velocity: 40
   health: 9
   isStun: 0
 --- !u!61 &2625267459444787893
