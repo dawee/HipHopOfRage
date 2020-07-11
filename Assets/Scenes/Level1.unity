@@ -2222,7 +2222,7 @@ PrefabInstance:
     - target: {fileID: 4150993485210653621, guid: 54f9cc5f6fb1af848b0dd0ab94a43d41,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.99028
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4150993485210653621, guid: 54f9cc5f6fb1af848b0dd0ab94a43d41,
         type: 3}
@@ -10424,6 +10424,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -5881830844665455741, guid: 6e0f007e5d87ec145a789e16bb10d876,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3838803414933279114, guid: 6e0f007e5d87ec145a789e16bb10d876,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10496,13 +10501,13 @@ PrefabInstance:
       objectReference: {fileID: 1282278340}
     - target: {fileID: 7356331234831402166, guid: 6e0f007e5d87ec145a789e16bb10d876,
         type: 3}
-      propertyPath: velocity
-      value: 15
+      propertyPath: minFollowDistance
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7356331234831402166, guid: 6e0f007e5d87ec145a789e16bb10d876,
         type: 3}
-      propertyPath: health
-      value: 10
+      propertyPath: isStun
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7514986118574929444, guid: 6e0f007e5d87ec145a789e16bb10d876,
         type: 3}

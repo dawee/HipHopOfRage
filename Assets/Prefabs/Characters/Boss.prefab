@@ -244,10 +244,10 @@ MonoBehaviour:
   animator: {fileID: 949783194919838702}
   wave: {fileID: 0}
   player: {fileID: 0}
-  minFollowDistance: 0
+  minFollowDistance: 30
   body: {fileID: 7722030704036932429}
-  velocity: 0
-  health: 0
+  velocity: 15
+  health: 10
   isStun: 0
 --- !u!50 &7722030704036932429
 Rigidbody2D:
