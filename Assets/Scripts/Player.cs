@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
 
     public void ReceiveHit(float damage)
     {
+        animator.SetTrigger("hit");
         health -= 1;
     }
 }

@@ -26,7 +26,7 @@ public class HitCollide : MonoBehaviour
 
             enemy.ReceiveHit(1.0f);
         }
-        else if (target == Target.Player && other.tag == "Player")
+        else if (target == Target.Player && other.tag == "Player" && other.isTrigger)
         {
             Player player = other.GetComponent<Player>();
 
