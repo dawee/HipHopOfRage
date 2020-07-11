@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (Vector3.Distance(transform.position, player.transform.position) > minFollowDistance)
+        if (Vector2.Distance(transform.position, player.transform.position) > minFollowDistance)
         {
             transform.localScale = player.transform.position.x > transform.position.x ? rightScale : leftScale;
             body.velocity = (player.transform.position - transform.position).normalized * velocity;
@@ -69,10 +69,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if(isStun)
+        if (isStun)
         {
             Stun();
-        } else {
+        }
+        else
+        {
             UpdateActions();
         }
     }
@@ -91,7 +93,7 @@ public class Enemy : MonoBehaviour
 
         animator.SetBool("walk", body.velocity != Vector2.zero);
 
-        if (health > 0 && Time.time - lastAttack > 2f)
+        if (health > 0 && Time.time - lastAttack > 2f && Vector3.Distance(transform.position, player.transform.position) <= minFollowDistance)
         {
             animator.SetTrigger("attack");
             lastAttack = Time.time;
@@ -119,11 +121,13 @@ public class Enemy : MonoBehaviour
     {
         health -= 1;
 
-        if(health == 0) 
+        if (health == 0)
         {
             Die();
-        } else {
-            animator.SetTrigger("hit");  
+        }
+        else
+        {
+            animator.SetTrigger("hit");
         }
     }
 
