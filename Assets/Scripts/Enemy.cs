@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     private float minFollowDistanceY = 5;
 
     [SerializeField]
+    private float attackDelay = 2;
+
+    [SerializeField]
     private Rigidbody2D body = default;
 
     [SerializeField]
@@ -45,6 +48,12 @@ public class Enemy : MonoBehaviour
     private float lastAttack = default;
     private static Vector3 rightScale = new Vector3(1, 1, 1);
     private static Vector3 leftScale = new Vector3(-1, 1, 1);
+
+    private void Awake()
+    {
+        // So the enemies don't have to wait [attackDelay] for their first attack
+        lastAttack = -attackDelay;
+    }
 
     private void FollowPlayer()
     {
@@ -106,7 +115,7 @@ public class Enemy : MonoBehaviour
         var reachableX = Math.Abs(transform.position.x - player.transform.position.x) <= minFollowDistanceX;
         var reachableY = Math.Abs(transform.position.y - player.transform.position.y) <= minFollowDistanceY;
 
-        if (health > 0 && Time.time - lastAttack > 2f && reachableX && reachableY)
+        if (health > 0 && Time.time - lastAttack > attackDelay && reachableX && reachableY)
         {
             animator.SetTrigger("attack");
             lastAttack = Time.time;
