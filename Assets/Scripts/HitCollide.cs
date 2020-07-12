@@ -18,20 +18,31 @@ public class HitCollide : MonoBehaviour
     [SerializeField]
     private Target target = default;
 
+    [SerializeField]
+    private float hitYRange = 5f;
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (target == Target.Enemy && other.tag == "Enemy")
+        if (IsHitSuccessful(other))
         {
-            Enemy enemy = other.GetComponent<Enemy>();
+            if (target == Target.Enemy && other.tag == "Enemy")
+            {
+                Enemy enemy = other.GetComponent<Enemy>();
 
-            enemy.ReceiveHit(1.0f);
+                enemy.ReceiveHit(1.0f);
+            }
+            else if (target == Target.Player && other.tag == "Player" && other.isTrigger)
+            {
+                Player player = other.GetComponent<Player>();
+
+                player.ReceiveHit(damage);
+            }
         }
-        else if (target == Target.Player && other.tag == "Player" && other.isTrigger)
-        {
-            Player player = other.GetComponent<Player>();
+    }
 
-            player.ReceiveHit(damage);
-
-        }
+    private bool IsHitSuccessful(Collider2D other)
+    {
+        var distance = Math.Abs(transform.parent.position.y - other.transform.position.y);
+        return distance <= hitYRange;
     }
 }
