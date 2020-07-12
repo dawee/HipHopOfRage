@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private float health = default;
+    public float Health => health;
 
     [SerializeField]
     private bool isStun = false;
