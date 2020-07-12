@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838505552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 29, z: 0}
-  m_LocalScale: {x: 14.577213, y: 3.287676, z: 1}
+  m_LocalPosition: {x: 11.01, y: 29, z: 0}
+  m_LocalScale: {x: 16.592789, y: 3.287676, z: 1}
   m_Children: []
   m_Father: {fileID: 6558571403554029168}
   m_RootOrder: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   target: 0
+  hitYRange: 5
 --- !u!1 &2795773917325670104
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1087485559404872663}
   animator: {fileID: 3830937286686338149}
-  velocity: 40
+  velocity: 50
   health: 9
   isStun: 0
   yoDead:
