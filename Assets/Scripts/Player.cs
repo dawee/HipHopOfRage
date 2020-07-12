@@ -2,17 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody2D body;
+    private Rigidbody2D body = default;
 
     [SerializeField]
-    private Animator animator;
+    private Animator animator = default;
 
     [SerializeField]
-    private float velocity;
+    private float velocity = default;
     public float Velocity => velocity;
 
     public Vector2 Position => transform.position;
@@ -23,6 +24,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private bool isStun = false;
+
+    [SerializeField]
+    private UnityEvent yoDead = default;
 
     private void Walk()
     {
@@ -44,6 +48,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            return;
+        }
 
         if (Input.GetButtonDown("Hit") && !isStun)
         {
@@ -65,5 +73,13 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger("hit");
         health -= 1;
+
+        if (health == 0)
+        {
+            animator.SetBool("Walk", false);
+            body.velocity = Vector2.zero;
+
+            yoDead?.Invoke();
+        }
     }
 }

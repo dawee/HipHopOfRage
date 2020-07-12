@@ -4429,6 +4429,36 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1802810347}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerDead
+      objectReference: {fileID: 0}
+    - target: {fileID: 751460195051636164, guid: b4ee9e0cc3dbab049bda60ded776d57b,
+        type: 3}
+      propertyPath: yoDead.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1476337553281362959, guid: b4ee9e0cc3dbab049bda60ded776d57b,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -5255,7 +5285,7 @@ PrefabInstance:
     - target: {fileID: 1966192277074901847, guid: 09a19b29124590843bb405c452e8822e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1966192277074901847, guid: 09a19b29124590843bb405c452e8822e,
         type: 3}
@@ -7391,6 +7421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
         type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 1250300186}
@@ -7399,6 +7434,31 @@ PrefabInstance:
       propertyPath: handgunAnimator
       value: 
       objectReference: {fileID: 2054719015}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1802810347}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnAllEnemiesDead
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503582556880409980, guid: 366e7354e5e63984a8b5504784806595,
+        type: 3}
+      propertyPath: AllWavesCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 366e7354e5e63984a8b5504784806595, type: 3}
 --- !u!114 &1552143239 stripped
@@ -8836,7 +8896,7 @@ PrefabInstance:
     - target: {fileID: 4150993485210653621, guid: 54f9cc5f6fb1af848b0dd0ab94a43d41,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4150993485210653621, guid: 54f9cc5f6fb1af848b0dd0ab94a43d41,
         type: 3}
@@ -9016,6 +9076,8 @@ MonoBehaviour:
   - {fileID: 1627427785}
   - {fileID: 295653501}
   player: {fileID: 1125366659}
+  winScreen: {fileID: 1803199501}
+  gameOverScreen: {fileID: 1888916485}
 --- !u!1 &1803199501
 GameObject:
   m_ObjectHideFlags: 0

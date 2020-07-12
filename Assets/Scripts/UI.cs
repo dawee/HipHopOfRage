@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
     [SerializeField]
-    private Animator[] healthBar;
+    private Animator[] healthBar = default;
 
     [SerializeField]
-    private Player player;
+    private Player player = default;
+
+    [SerializeField]
+    private GameObject winScreen = default;
+
+    [SerializeField]
+    private GameObject gameOverScreen = default;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +40,26 @@ public class UI : MonoBehaviour
             }
             currentHealth++;
         }
+
+        if (Input.GetButtonDown("Hit") && (gameOverScreen.activeInHierarchy || winScreen.activeInHierarchy))
+        {
+            RestartLevel();
+        }
+    }
+
+    private void RestartLevel()
+    {
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+
+    public void OnPlayerDead()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void OnAllEnemiesDead()
+    {
+        winScreen.SetActive(true);
     }
 }

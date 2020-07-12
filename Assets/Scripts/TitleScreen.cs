@@ -6,13 +6,13 @@ public class TitleScreen : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject game;
+    private GameObject game = default;
     
     [SerializeField]
-    private GameObject titleScreen;
+    private GameObject titleScreen = default;
 
     [SerializeField]
-    private Animator animator;
+    private Animator animator = default;
 
     [SerializeField]
     private bool isStarted = false;
