@@ -16,12 +16,12 @@ public class Level : MonoBehaviour
     private UnityEvent AllWavesCompleted = default;
 
     private Checkpoint currentCheckpoint;
-    private Wave[] waves;
+    private Checkpoint[] checkpoints;
 
     private void Awake()
     {
         // Unoptimized, lazy version because end of jam (ideally we would link them in the editor instead of using reflection)
-        waves = FindObjectsOfType<Wave>().Where(w => w.gameObject.activeInHierarchy).ToArray();
+        checkpoints = FindObjectsOfType<Checkpoint>().Where(c => c.gameObject.activeInHierarchy).ToArray();
     }
 
     public void OnHitCheckpoint(Checkpoint checkpoint)
@@ -33,7 +33,7 @@ public class Level : MonoBehaviour
     {
         if (checkpoint == currentCheckpoint)
         {
-            if (waves.All(w => w.Completed))
+            if (checkpoints.All(c => c.Completed))
             {
                 AllWavesCompleted?.Invoke();
                 return;
