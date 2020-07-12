@@ -9,7 +9,16 @@ public class UI : MonoBehaviour
     private Animator[] healthBar = default;
 
     [SerializeField]
+    private Animator[] bossHealthBar = default;
+
+    [SerializeField]
+    private GameObject bossHealthBarContainer = default;
+
+    [SerializeField]
     private Player player = default;
+
+    [SerializeField]
+    private Enemy boss = default;
 
     [SerializeField]
     private GameObject winScreen = default;
@@ -26,11 +35,23 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int Health = player.Health;
-        int currentHealth = 1;
-        foreach (Animator Hp in healthBar)
+        bossHealthBarContainer.SetActive(boss?.gameObject.activeInHierarchy ?? false);
+        
+        UpdateHpBar(healthBar, player.Health);
+        UpdateHpBar(bossHealthBar, (int)(boss?.Health ?? 0));
+
+        if (Input.GetButtonDown("Hit") && (gameOverScreen.activeInHierarchy || winScreen.activeInHierarchy))
         {
-            if (Health >= currentHealth)
+            RestartLevel();
+        }
+    }
+
+    private void UpdateHpBar(Animator[] hpBar, int health)
+    {
+        int currentHealth = 1;
+        foreach (Animator Hp in hpBar)
+        {
+            if (health >= currentHealth)
             {
                 Hp.SetBool("Full", true);
             }
@@ -39,11 +60,6 @@ public class UI : MonoBehaviour
                 Hp.SetBool("Full", false);
             }
             currentHealth++;
-        }
-
-        if (Input.GetButtonDown("Hit") && (gameOverScreen.activeInHierarchy || winScreen.activeInHierarchy))
-        {
-            RestartLevel();
         }
     }
 
