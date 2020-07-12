@@ -226,7 +226,8 @@ MonoBehaviour:
   animator: {fileID: 7709438513335169640}
   wave: {fileID: 0}
   player: {fileID: 0}
-  minFollowDistance: 10
+  minFollowDistanceX: 15
+  minFollowDistanceY: 5
   body: {fileID: 640425627}
   velocity: 25
   health: 3

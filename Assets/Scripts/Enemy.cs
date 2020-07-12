@@ -23,7 +23,10 @@ public class Enemy : MonoBehaviour
     private Player player = default;
 
     [SerializeField]
-    private float minFollowDistance = default;
+    private float minFollowDistanceX = 15;
+
+    [SerializeField]
+    private float minFollowDistanceY = 5;
 
     [SerializeField]
     private Rigidbody2D body = default;
@@ -45,10 +48,17 @@ public class Enemy : MonoBehaviour
 
     private void FollowPlayer()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) > minFollowDistance)
+        var followX = Math.Abs(transform.position.x - player.transform.position.x) > minFollowDistanceX;
+        var followY = Math.Abs(transform.position.y - player.transform.position.y) > minFollowDistanceY;
+
+        if (followX || followY)
         {
             transform.localScale = player.transform.position.x > transform.position.x ? rightScale : leftScale;
-            body.velocity = (player.transform.position - transform.position).normalized * velocity;
+
+            var velocityX = followX ? player.transform.position.x - transform.position.x : 0f;
+            var velocityY = followY ? player.transform.position.y - transform.position.y : 0f;
+
+            body.velocity = new Vector2(velocityX, velocityY).normalized * velocity;
         }
         else
         {
@@ -93,7 +103,10 @@ public class Enemy : MonoBehaviour
 
         animator.SetBool("walk", body.velocity != Vector2.zero);
 
-        if (health > 0 && Time.time - lastAttack > 2f && Vector3.Distance(transform.position, player.transform.position) <= minFollowDistance)
+        var reachableX = Math.Abs(transform.position.x - player.transform.position.x) <= minFollowDistanceX;
+        var reachableY = Math.Abs(transform.position.y - player.transform.position.y) <= minFollowDistanceY;
+
+        if (health > 0 && Time.time - lastAttack > 2f && reachableX && reachableY)
         {
             animator.SetTrigger("attack");
             lastAttack = Time.time;
