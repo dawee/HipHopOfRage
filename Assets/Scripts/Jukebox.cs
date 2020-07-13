@@ -15,6 +15,18 @@ public class Jukebox : MonoBehaviour
         bossMusic.Play();
     }
 
+    public void OnWin()
+    {
+        levelMusic.Stop();
+        bossMusic.Stop();
+    }
+
+    public void OnGameOver()
+    {
+        levelMusic.Stop();
+        bossMusic.Stop();
+    }
+
     void Start()
     {
         bossMusic.Stop();

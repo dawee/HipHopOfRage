@@ -26,6 +26,9 @@ public class UI : MonoBehaviour
     [SerializeField]
     private GameObject gameOverScreen = default;
 
+    [SerializeField]
+    private Jukebox jukebox = default;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +39,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         bossHealthBarContainer.SetActive(boss?.gameObject.activeInHierarchy ?? false);
-        
+
         UpdateHpBar(healthBar, player.Health);
         UpdateHpBar(bossHealthBar, (int)(boss?.Health ?? 0));
 
@@ -72,6 +75,7 @@ public class UI : MonoBehaviour
     public void OnPlayerDead()
     {
         gameOverScreen.SetActive(true);
+        jukebox.OnGameOver();
     }
 
     public void OnAllEnemiesDead()
@@ -83,5 +87,6 @@ public class UI : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         winScreen.SetActive(true);
+        jukebox.OnWin();
     }
 }
