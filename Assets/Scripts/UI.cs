@@ -76,6 +76,12 @@ public class UI : MonoBehaviour
 
     public void OnAllEnemiesDead()
     {
+        StartCoroutine(ShowWinScreenWithDelay());
+    }
+
+    private IEnumerator ShowWinScreenWithDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
         winScreen.SetActive(true);
     }
 }
