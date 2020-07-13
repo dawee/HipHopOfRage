@@ -158,7 +158,7 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("death");
 
-        if (wave)
+        if (wave != null)
         {
             wave.OnEnemyDead(this);
         }

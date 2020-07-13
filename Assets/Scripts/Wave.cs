@@ -12,7 +12,6 @@ public class Wave : MonoBehaviour
 
     private bool started = false;
     private bool completed = false;
-    public bool Completed => completed;
 
     public void OnEnemyDead(Enemy enemy)
     {

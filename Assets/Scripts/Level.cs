@@ -18,6 +18,8 @@ public class Level : MonoBehaviour
     private Checkpoint currentCheckpoint;
     private Checkpoint[] checkpoints;
 
+    private bool completed = false;
+
     private void Awake()
     {
         // Unoptimized, lazy version because end of jam (ideally we would link them in the editor instead of using reflection)
@@ -31,14 +33,15 @@ public class Level : MonoBehaviour
 
     public void OnCompleteCheckpoint(Checkpoint checkpoint)
     {
+        if (checkpoints.All(c => c.Completed) && !completed)
+        {
+            completed = true;
+            AllWavesCompleted?.Invoke();
+            return;
+        }
+
         if (checkpoint == currentCheckpoint)
         {
-            if (checkpoints.All(c => c.Completed))
-            {
-                AllWavesCompleted?.Invoke();
-                return;
-            }
-            
             currentCheckpoint = null;
             cameraController.SetMode(CameraController.Mode.Following);
             handgunAnimator.SetTrigger("show");
